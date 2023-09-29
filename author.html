@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Playing with JavaScript</title>
+</head>
+<body>
+    <h1>Author Entry Varshitha</h1>
+    <h2>Guess the Author</h2>
+
+    <form>
+        <!-- Input for the secret string (hidden author name) -->
+        <label for="secretInput">The hidden author name:</label>
+        <input type="password" id="secretInput" name="secretInput" value="Dickens" required><br>
+
+        <!-- Input for the user's guess -->
+        <label for="guessInput">Guess the author:</label>
+        <input type="text" id="guessInput" name="guessInput" required><br>
+
+        <!-- Button to check the guess -->
+        <input type="button" onclick="checkAuthor()" value="Check the guess">
+    </form>
+
+    <!-- Element to display results -->
+    <p id="result">Good: 0 | Oops: 0</p>
+
+    <script>
+        // Global variables to keep track of good and oops counts
+        var good = 0;
+        var oops = 0;
+
+        // Function to check the author guess
+        function checkAuthor() {
+            // Get the value from the hidden author input element
+            const secretValue = document.getElementById("secretInput").value;
+
+            // Get the value from the guess input element
+            const userGuess = document.getElementById("guessInput").value;
+
+            // Compare the values and update counts and display results
+            if (userGuess === secretValue) {
+                good++;
+                alert("You got it right!");
+            } else {
+                oops++;
+                alert("Sorry");
+            }
+
+            // Update the innerHTML of the result element
+            const resultElement = document.getElementById("result");
+            resultElement.innerHTML = "Good: " + good + " | Oops: " + oops;
+        }
+    </script>
+</body>
+</html>
