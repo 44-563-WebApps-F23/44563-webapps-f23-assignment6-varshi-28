@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cruise Party</title>
+</head>
+
+<body>
+    <h2>Varshitha Goes on a Cruise</h2>
+
+    <!-- Form group for checkboxes -->
+    <form id="cruiseForm">
+        <div>
+            <input type="checkbox" id="sharesCabin" value="True">
+            <label for="sharesCabin">Shares Cabin</label>            
+        </div>
+        <div>
+            <input type="checkbox" id="breakfast" value="True">
+            <label for="breakfast">Breakfast</label>
+        </div>
+        <div>
+            <input type="checkbox" id="poolPass" value="False">
+            <label for="poolPass">Pool Pass</label>
+        </div>
+    </form>
+    <br>
+    <!-- Button to select a cruise -->
+    <input type="button" value="Select a cruise" onclick="selectCruise()"><br>
+
+    <!-- Element to display results -->
+    <p id="cruiseResult"></p>
+
+    <script>
+        // Global variable for cruise selection
+        let my_cruise = {};
+
+        function selectCruise() {
+            // Reset my_cruise to an empty object
+            my_cruise = {};
+
+            // Get the checkbox values
+            const sharesCabin = document.getElementById("sharesCabin").checked;
+            const breakfast = document.getElementById("breakfast").checked;
+            const poolPass = document.getElementById("poolPass").checked;
+
+            // Set properties in my_cruise based on checkbox values
+            my_cruise.shared = sharesCabin;
+            my_cruise.breakfast = breakfast;
+            my_cruise.pool = poolPass;
+
+            // Display my_cruise object
+            const cruiseResultElement = document.getElementById("cruiseResult");
+            cruiseResultElement.innerHTML = JSON.stringify(my_cruise);
+        }
+    </script>
+</body>
+
+</html>
