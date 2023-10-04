@@ -31,6 +31,7 @@
     <script>        
         var good = 0;
         var oops = 0;
+        var incorrectGuesses = 0; // Track the number of incorrect guesses
         var useImage = 1;
 
         // Function to check the author guess
@@ -44,7 +45,16 @@
                 alert("You got it right!");
             } else {
                 oops++;
+                incorrectGuesses++; // Increment the count of incorrect guesses
                 alert("Sorry");
+                // Check if the maximum incorrect guesses limit is reached
+                if (incorrectGuesses >= 7) {
+                    // Replace the onclick property with a new function
+                    document.getElementById("result").innerHTML = "Good: " + good + " | Oops: " + oops;
+                    document.querySelector('input[type="button"]').onclick = function() {
+                        alert("Sorry, ran out of guesses.");
+                    }
+                }
             }
 
             // Update the innerHTML of the result element
