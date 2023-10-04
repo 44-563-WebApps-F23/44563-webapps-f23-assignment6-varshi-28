@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Cruise Party</title>
+    <title>Varshitha Goes on a Cruise</title>
 </head>
 
 <body>
@@ -20,26 +20,30 @@
         </div>
         <div>
             <input type="checkbox" id="poolPass" value="False">
-            <label for="poolPass">Pool Pass</label>
+            <label for="poolPass">Pool Pass</label>&nbsp;
         </div>
     </form>
-
-    <!-- Form to update cruise information -->
-    <form id="updateForm">
-        <!-- Input for property name -->
-        <label for="propertyName">Enter the name of a property:</label>
-        <input type="text" id="propertyName" value="days"><br>
-
-        <!-- Input for cruise price -->
-        <label for="cruisePrice">Enter cruise price:</label>
-        <input type="text" id="cruisePrice"><br>
-
-        <!-- Button to update the cruise -->
-        <input type="button" onclick="updateCruise()" value="Update the cruise"><br>
-    </form>
+    <br>
+    <!-- Button to select a cruise -->
+    <input type="button" value="Select a cruise" onclick="selectCruise()"><br>
 
     <!-- Element to display results -->
     <p id="cruiseResult"></p>
+    <hr>
+    <br>
+    <form id="updateForm">
+        <label for="propertyName">Enter the name of a property:</label>
+        <input type="text" id="propertyName" value="days">
+        <br>
+
+        <label for="cruisePrice">Enter price:</label>
+        <input type="text" id="cruisePrice">
+        <br>
+        <br>
+        <input type="button" onclick="updateCruise()" value="Update the cruise">
+    </form>
+
+    <p id="cruiseUpdateResult"></p>
 
     <script>
         // Global variable for cruise selection
@@ -65,18 +69,13 @@
         }
 
         function updateCruise() {
-            // Get the value from the property name input element
             const propertyName = document.getElementById("propertyName").value;
-
-            // Get the value from the cruise price input element
             const cruisePrice = document.getElementById("cruisePrice").value;
 
-            // Set the property of my_cruise with the values from the input elements
             my_cruise[propertyName] = cruisePrice;
 
-            // Display my_cruise object
-            const cruiseResultElement = document.getElementById("cruiseResult");
-            cruiseResultElement.innerHTML = JSON.stringify(my_cruise);
+            const cruiseUpdateResultElement = document.getElementById("cruiseUpdateResult");
+            cruiseUpdateResultElement.innerHTML = JSON.stringify(my_cruise);
         }
     </script>
 </body>
