@@ -28,20 +28,16 @@
         <img id="cityImage" src="city2.jpg" alt="City" width="100" height="100" onclick="selectImage()">
     </div>
 
-    <script>
-        
+    <script>        
         var good = 0;
         var oops = 0;
         var useImage = 1;
 
         // Function to check the author guess
         function checkAuthor() {
-
             const secretValue = document.getElementById("secretInput").value;
-
             // Get the value from the guess input element
             const userGuess = document.getElementById("guessInput").value;
-
             // Compare the values and update counts and display results
             if (userGuess === secretValue) {
                 good++;

@@ -36,6 +36,29 @@
             const tipResultElement = document.getElementById("tipResult");
             tipResultElement.textContent = "Tip Amount: $" + tipAmount.toFixed(2);
         }
+
+                function tips() {
+            // Get the base amount and tip percent from input elements
+            const baseAmount = parseFloat(document.getElementById("baseAmount").value);
+            const tipPercent = parseFloat(document.getElementById("tipPercent").value);
+
+            // Initialize a local variable to store the output
+            let toShow = "";
+
+            // Loop to calculate tips for 5 different tip levels
+            for (let i = 0; i < 5; i++) {
+                // Calculate tip for the current tip level
+                const calculatedTip = (baseAmount * (tipPercent + i * 4)) / 100;
+
+                // Append the tip information to the output string
+                toShow += `${tipPercent + i * 4}% is ${calculatedTip.toFixed(2)}; `;
+            }
+
+            // Replace the innerHTML of the tagged element with the calculated tips
+            const resultElement = document.getElementById("result");
+            resultElement.innerHTML = "Tips are: " + toShow;
+        }
+
     </script>
 </body>
 
