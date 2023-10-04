@@ -21,6 +21,11 @@
     <p id="result">Tips are:</p>
 
     <script>
+        // Function to format numbers without trailing zeros
+        function formatNumber(value) {
+            return parseFloat(value).toString().replace(/(\.[0-9]*[1-9])0+$/, "$1");
+        }
+
         function tips() {
             const baseAmount = parseFloat(document.getElementById("baseAmount").value);
             const tipPercent = parseFloat(document.getElementById("tipPercent").value);
@@ -28,7 +33,9 @@
 
             for (let i = 0; i < 5; i++) {
                 const tipAmount = (baseAmount * (tipPercent + i * 4)) / 100;
-                toShow += `${tipPercent + i * 4}% is ${tipAmount.toFixed(2)}; `;
+                // Format the tip amount using the formatNumber function
+                const formattedTipAmount = formatNumber(tipAmount.toFixed(2));
+                toShow += `${tipPercent + i * 4}% is ${formattedTipAmount}; `;
             }
 
             const resultElement = document.getElementById("result");
