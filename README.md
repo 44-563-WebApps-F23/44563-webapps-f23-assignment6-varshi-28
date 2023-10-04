@@ -2,11 +2,11 @@
 # WebApps-F23-Assignment-6
 Introduction to Java Script and DOM
 <br>
-[Hosted at]
+Hosted at
 ("https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment6-varshi-28/author.html")
-<br>
+Hosted at
 ("https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment6-varshi-28/tips.html")
-<br>
+Hosted at
 ("https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment6-varshi-28/cruise.html")
 
 
