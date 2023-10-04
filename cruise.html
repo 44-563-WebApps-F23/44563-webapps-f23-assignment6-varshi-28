@@ -8,11 +8,11 @@
 <body>
     <h2>Varshitha Goes on a Cruise</h2>
 
-    <!-- Form group for checkboxes -->
+    <!-- Checkbox form -->
     <form id="cruiseForm">
         <div>
             <input type="checkbox" id="sharesCabin" value="True">
-            <label for="sharesCabin">Shares Cabin</label>            
+            <label for="sharesCabin">Shares Cabin</label>
         </div>
         <div>
             <input type="checkbox" id="breakfast" value="True">
@@ -23,9 +23,20 @@
             <label for="poolPass">Pool Pass</label>
         </div>
     </form>
-    <br>
-    <!-- Button to select a cruise -->
-    <input type="button" value="Select a cruise" onclick="selectCruise()"><br>
+
+    <!-- Form to update cruise information -->
+    <form id="updateForm">
+        <!-- Input for property name -->
+        <label for="propertyName">Enter the name of a property:</label>
+        <input type="text" id="propertyName" value="days"><br>
+
+        <!-- Input for cruise price -->
+        <label for="cruisePrice">Enter cruise price:</label>
+        <input type="text" id="cruisePrice"><br>
+
+        <!-- Button to update the cruise -->
+        <input type="button" onclick="updateCruise()" value="Update the cruise"><br>
+    </form>
 
     <!-- Element to display results -->
     <p id="cruiseResult"></p>
@@ -47,6 +58,21 @@
             my_cruise.shared = sharesCabin;
             my_cruise.breakfast = breakfast;
             my_cruise.pool = poolPass;
+
+            // Display my_cruise object
+            const cruiseResultElement = document.getElementById("cruiseResult");
+            cruiseResultElement.innerHTML = JSON.stringify(my_cruise);
+        }
+
+        function updateCruise() {
+            // Get the value from the property name input element
+            const propertyName = document.getElementById("propertyName").value;
+
+            // Get the value from the cruise price input element
+            const cruisePrice = document.getElementById("cruisePrice").value;
+
+            // Set the property of my_cruise with the values from the input elements
+            my_cruise[propertyName] = cruisePrice;
 
             // Display my_cruise object
             const cruiseResultElement = document.getElementById("cruiseResult");
