@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Calculate Tips easily</title>
+    <title>Tips Calculator</title>
 </head>
-
 <body>
-    <h1>Varshitha Shows Tip Amounts</h1>
+    <h1>Agraja Shows Tip Amounts</h1>
 
     <!-- Input for the base amount -->
     <label for="baseAmount">Enter base amount:</label>
@@ -16,50 +14,26 @@
     <label for="tipPercent">Enter the tip percent:</label>
     <input type="number" id="tipPercent" value="15"><br>
 
-    <!-- Button to calculate the tip -->
-    <input type="button" value="Show tip" onclick="calculateTip()"><br>
+    <!-- Button to calculate and show tips -->
+    <input type="button" onclick="tips()" value="Show tip"><br>
 
-    <!-- Result paragraph to display the calculated tip -->
-    <p id="tipResult"></p>
+    <!-- Element to display results -->
+    <p id="result">Tips are:</p>
 
     <script>
-        // Function to calculate the tip
-        function calculateTip() {
-            // Get the values from the input elements
+        function tips() {
             const baseAmount = parseFloat(document.getElementById("baseAmount").value);
             const tipPercent = parseFloat(document.getElementById("tipPercent").value);
-
-            // Calculate the tip
-            const tipAmount = (baseAmount * tipPercent) / 100;
-
-            // Display the result
-            const tipResultElement = document.getElementById("tipResult");
-            tipResultElement.textContent = "Tip Amount: $" + tipAmount.toFixed(2);
-        }
-
-                function tips() {
-            // Get the base amount and tip percent from input elements
-            const baseAmount = parseFloat(document.getElementById("baseAmount").value);
-            const tipPercent = parseFloat(document.getElementById("tipPercent").value);
-
-            // Initialize a local variable to store the output
             let toShow = "";
 
-            // Loop to calculate tips for 5 different tip levels
             for (let i = 0; i < 5; i++) {
-                // Calculate tip for the current tip level
-                const calculatedTip = (baseAmount * (tipPercent + i * 4)) / 100;
-
-                // Append the tip information to the output string
-                toShow += `${tipPercent + i * 4}% is ${calculatedTip.toFixed(2)}; `;
+                const tipAmount = (baseAmount * (tipPercent + i * 4)) / 100;
+                toShow += `${tipPercent + i * 4}% is ${tipAmount.toFixed(2)}; `;
             }
 
-            // Replace the innerHTML of the tagged element with the calculated tips
             const resultElement = document.getElementById("result");
             resultElement.innerHTML = "Tips are: " + toShow;
         }
-
     </script>
 </body>
-
 </html>
