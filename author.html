@@ -19,14 +19,24 @@
         <!-- Button to check the guess -->
         <input type="button" onclick="checkAuthor()" value="Check the guess">
     </form>
+
+    <!-- Element to display results -->
     <p id="result">Good: 0 | Oops: 0</p>
 
+    <!-- Add a div container -->
+    <div id="imageContainer">
+        <img id="cityImage" src="city2.jpg" alt="City" width="100" height="100" onclick="selectImage()">
+    </div>
+
     <script>
-        // Global variables to keep track of good and oops counts
+        
         var good = 0;
         var oops = 0;
+        var useImage = 1;
+
+        // Function to check the author guess
         function checkAuthor() {
-            // Get the value from the hidden author input element
+
             const secretValue = document.getElementById("secretInput").value;
 
             // Get the value from the guess input element
@@ -44,6 +54,25 @@
             // Update the innerHTML of the result element
             const resultElement = document.getElementById("result");
             resultElement.innerHTML = "Good: " + good + " | Oops: " + oops;
+        }
+
+        // Function to switch between images
+        function selectImage() {
+            const imageElement = document.getElementById("cityImage");
+            switch (useImage) {
+                case 1:
+                    imageElement.src = "city3.jpg";
+                    useImage = 2;
+                    break;
+                case 2:
+                    imageElement.src = "city1.jpg";
+                    useImage = 3;
+                    break;
+                case 3:
+                    imageElement.src = "city2.jpg";
+                    useImage = 1;
+                    break;
+            }
         }
     </script>
 </body>

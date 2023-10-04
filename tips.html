@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculate Tips easily</title>
+</head>
+
+<body>
+    <h1>Varshitha Shows Tip Amounts</h1>
+
+    <!-- Input for the base amount -->
+    <label for="baseAmount">Enter base amount:</label>
+    <input type="number" id="baseAmount" value="50"><br>
+
+    <!-- Input for the tip percent -->
+    <label for="tipPercent">Enter the tip percent:</label>
+    <input type="number" id="tipPercent" value="15"><br>
+
+    <!-- Button to calculate the tip -->
+    <input type="button" value="Show tip" onclick="calculateTip()"><br>
+
+    <!-- Result paragraph to display the calculated tip -->
+    <p id="tipResult"></p>
+
+    <script>
+        // Function to calculate the tip
+        function calculateTip() {
+            // Get the values from the input elements
+            const baseAmount = parseFloat(document.getElementById("baseAmount").value);
+            const tipPercent = parseFloat(document.getElementById("tipPercent").value);
+
+            // Calculate the tip
+            const tipAmount = (baseAmount * tipPercent) / 100;
+
+            // Display the result
+            const tipResultElement = document.getElementById("tipResult");
+            tipResultElement.textContent = "Tip Amount: $" + tipAmount.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>
