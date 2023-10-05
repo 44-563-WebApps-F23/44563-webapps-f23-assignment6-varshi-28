@@ -15,7 +15,7 @@
     <h2>Varshitha Goes on a Cruise</h2>
 
     <!-- Checkbox form -->
-    <form id="cruiseForm">
+    <!-- <form id="cruiseForm">
         <div>
             <input type="checkbox" id="sharesCabin" value="True">
             <label for="sharesCabin">Shares Cabin</label>
@@ -28,6 +28,20 @@
             <input type="checkbox" id="poolPass" value="False">
             <label for="poolPass">Pool Pass</label>&nbsp;
         </div>
+    </form> -->
+    <form id="cruiseForm">
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="sharesCabin" value="True">
+            <label class="form-check-label" for="sharesCabin">Shares Cabin</label>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="breakfast" value="True">
+            <label class="form-check-label" for="breakfast">Breakfast</label>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="poolPass" value="False">
+            <label class="form-check-label" for="poolPass">Pool Pass</label>
+        </div>
     </form>
     <br>
     <!-- Button to select a cruise -->
@@ -37,7 +51,7 @@
     <p id="cruiseResult"></p>
     <hr>
     <br>
-    <form id="updateForm">
+    <!-- <form id="updateForm">
         <label for="propertyName">Enter the Number of days:</label>
         <input type="text" id="propertyName" value="days">
         <br>
@@ -47,6 +61,18 @@
         <br>
         <br>
         <input type="button" onclick="updateCruise()" value="Update the cruise">
+    </form> -->
+    <form id="updateForm">
+        <div class="mb-3">
+            <label for="propertyName" class="form-label">Enter the Number of days:</label>
+            <input type="text" id="propertyName" class="form-control" value="days">
+        </div>
+        <div class="mb-3">
+            <label for="cruisePrice" class="form-label">Enter price:</label>
+            <input type="text" id="cruisePrice" class="form-control">
+        </div>
+        <br>
+        <button type="button" class="btn btn-primary" onclick="updateCruise()">Update the cruise</button>
     </form>
 
     <p id="cruiseUpdateResult"></p>
